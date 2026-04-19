@@ -35,6 +35,7 @@ import * as stream_settings_components from "./stream_settings_components.ts";
 import * as sub_store from "./sub_store.ts";
 import * as subscriber_api from "./subscriber_api.ts";
 import {get_timestamp_for_flatpickr} from "./timerender.ts";
+import * as tone_mlops from "./tone_mlops.ts";
 import * as ui_report from "./ui_report.ts";
 import * as upload from "./upload.ts";
 import * as user_topics from "./user_topics.ts";
@@ -63,6 +64,8 @@ export function initialize() {
     $(".compose-control-buttons-container .audio_link").toggle(
         compose_call.compute_show_audio_chat_button(),
     );
+
+    tone_mlops.initialize();
 
     $("textarea#compose-textarea").on("keydown", (event) => {
         compose_ui.handle_keydown(event, $("textarea#compose-textarea").expectOne());
